@@ -605,11 +605,11 @@
       * IF THIS NUMBER IS EQUAL TO ZERO IT MEANS THAT                   
       * ALL THE CELLS ARE DEAD                                          
       *           
-     ******************************************************************
-      2141-ITERATE-THE-GAME.                                           
-     *TEST                                                             
-     *    DISPLAY '2141-ITERATE-THE-GAME '                             
-     */TEST                                                            
+      ******************************************************************
+       2141-ITERATE-THE-GAME.                                           
+      *TEST                                                             
+      *    DISPLAY '2141-ITERATE-THE-GAME '                             
+      */TEST                                                            
           INITIALIZE WS-NEIGHBORS-TOTAL                                
                                                                        
           PERFORM VARYING WS-ITER FROM 1 BY 1 UNTIL WS-ITER > 24       
@@ -618,31 +618,31 @@
                 PERFORM 2142-COUNT-NEIGHBORS                           
                                                                        
                 SET SO-DO-NOTHING TO TRUE                              
-     * THIS DECISION WILL BE MADE BASED ON NUMBER OF NEIGHBORS         
+      * THIS DECISION WILL BE MADE BASED ON NUMBER OF NEIGHBORS         
                 PERFORM 2145-MAKE-DECISION-LIVE-DEAD                   
                                                                        
-                EVALUATE TRUE                                          
-                  WHEN SO-KILL-THE-CELL                                
-     *TEST                                                             
-     *    DISPLAY '2141 KILING THE  CELL  '                            
-     *    DISPLAY '2141 SPACE WAS MOVED TO THIS POSITION '             
-     */TEST                                                            
-                      MOVE ' ' TO POLEO(WS-ITER)(WS-ITER2:1)           
-                  WHEN SO-CREATE-NEW-CELL                              
-     *TEST                                                             
-     *    DISPLAY '2141 CREATING THE CELL  (BIRTH) '                   
-     *    DISPLAY '2141 X WAS PLACED ON THAT POSITION '                
-     */TEST                                                            
-                      MOVE 'X' TO POLEO(WS-ITER)(WS-ITER2:1)           
-                  WHEN SO-DO-NOTHING                                   
-     *TEST                                                             
-     *    DISPLAY '2141 SO-DO-NOTHING  NO ACTION IS TAKEN '            
-     */TEST                                                            
-                      CONTINUE                                         
-                END-EVALUATE      
-                 ADD WS-COUNT-NEIGHBORS TO WS-NEIGHBORS-TOTAL           
-              END-PERFORM                                               
-           END-PERFORM                                                  
+                 EVALUATE TRUE                                          
+                   WHEN SO-KILL-THE-CELL                                
+      *TEST                                                             
+      *    DISPLAY '2141 KILING THE  CELL  '                            
+      *    DISPLAY '2141 SPACE WAS MOVED TO THIS POSITION '             
+      */TEST                                                            
+                       MOVE ' ' TO POLEO(WS-ITER)(WS-ITER2:1)           
+                   WHEN SO-CREATE-NEW-CELL                              
+      *TEST                                                             
+      *    DISPLAY '2141 CREATING THE CELL  (BIRTH) '                   
+      *    DISPLAY '2141 X WAS PLACED ON THAT POSITION '                
+      */TEST                                                            
+                       MOVE 'X' TO POLEO(WS-ITER)(WS-ITER2:1)           
+                    WHEN SO-DO-NOTHING                                   
+      *TEST                                                             
+      *    DISPLAY '2141 SO-DO-NOTHING  NO ACTION IS TAKEN '            
+      */TEST                                                            
+                       CONTINUE                                         
+                 END-EVALUATE      
+                  ADD WS-COUNT-NEIGHBORS TO WS-NEIGHBORS-TOTAL           
+               END-PERFORM                                               
+            END-PERFORM                                                  
            .                                                            
       ******************************************************************
       *                   2142-COUNT-NEIGHBORS                          
@@ -675,7 +675,7 @@
            THEN                                                         
       * HERE ALL THE NEIGHBORS PHYSICLY EXISTS                          
       *TEST     
-     */TEST                                                  
+      */TEST                                                  
               PERFORM 2150-CHECK-LEFT-TOP                    
               PERFORM 2151-CHECK-LEFT-MEDIUM                 
               PERFORM 2152-CHECK-LEFT-BOTTOM                 
@@ -684,32 +684,32 @@
               PERFORM 2155-CHECK-MEDIUM-RIGHT                
               PERFORM 2156-CHECK-RIGHT-TOP                   
               PERFORM 2157-CHECK-MEDIUM-TOP                  
-          ELSE                                               
-     * HERE WE WILL CHECK NOT PERFECT SCENARIOS              
-     * LIKE BEEING AT THE CORNER OR AT THE SIDE              
+           ELSE                                               
+      * HERE WE WILL CHECK NOT PERFECT SCENARIOS              
+      * LIKE BEEING AT THE CORNER OR AT THE SIDE              
                                                              
                                                              
-     * LEFT TOP CORNER                                       
-     *            ***********************                    
-     *            *X                    *                    
-     *            *                     *                    
-     *            *                     *                    
-     *            ***********************                    
+      * LEFT TOP CORNER                                       
+      *            ***********************                    
+      *            *X                    *                    
+      *            *                     *                    
+      *            *                     *                    
+      *            ***********************                    
                                                              
             IF WS-ITER = 1 AND WS-ITER2 = 1 THEN             
-     *TEST                                                   
-     *    DISPLAY '2142 TOP LEFT CORNER   '                  
-     */TEST                                                  
+      *TEST                                                   
+      *    DISPLAY '2142 TOP LEFT CORNER   '                  
+      */TEST                                                  
                PERFORM 2155-CHECK-MEDIUM-RIGHT               
                PERFORM 2154-CHECK-RIGHT-BOTTOM               
                PERFORM 2153-CHECK-MEDIUM-BOTTOM              
             END-IF                                           
-     * TOP RIGHT CORNER                                      
-     *            ***********************                    
-     *            *                    X*                    
-     *            *                     *                    
-     *            *                     *                    
-     *            ***********************                    
+      * TOP RIGHT CORNER                                      
+      *            ***********************                    
+      *            *                    X*                    
+      *            *                     *                    
+      *            *                     *                    
+      *            ***********************                    
             IF WS-ITER = 1 AND WS-ITER2 = 79 THEN   
       *TEST                                              
       *    DISPLAY '2142 TOP RIGHT CORNER   '            
